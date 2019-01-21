@@ -9,7 +9,7 @@
          </div>
      </div>
      </br>
-            <div class="d-flex flex-wrap justify-content-center">
+                  <div class="d-flex flex-wrap justify-content-center">
     
                  @foreach(Auth::user()->room as $room)
                  @php
@@ -23,8 +23,9 @@
                      }
                      
                  @endphp
-                <a button type='button' class='btn {{$style}}' style="margin:5px; width: 20rem;" href='{{route("room_edit", ["room" => $room->id])}}'>{{$room->full_name}}</button></a>
+                <a href='{{route("room_edit", ["room" => $room->id])}}'><button type='button' class='btn {{$style}}' style="margin:5px; width: 20rem;">{{$room->full_name}}</button></a>
                 @endforeach
+    
     
     
     
