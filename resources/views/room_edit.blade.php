@@ -21,7 +21,9 @@
                         <option value='{{date('Y-m-d',strtotime("-2 days"))}}'>{{date('M d, Y',strtotime("-2 days"))}}</option>
                         <option value='{{date('Y-m-d',strtotime("-3 days"))}}'>{{date('M d, Y',strtotime("-3 days"))}}</option>
                     </select>
-                   
+                   @if($location->bulb_hours != null)
+                    <input class="form-control" type="number" value='{{$location->bulb_hours}}' name="bulb_hours">
+                   @endif
     
                     <button type="submit" class="btn btn-success">Submit</button>
                     </form>

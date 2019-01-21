@@ -55,6 +55,7 @@ class RoomCrudController extends CrudController
         //$this->crud->addColumn(['name' => 'building', 'type' => 'number', 'label' => 'building']);
        
         $this->crud->addColumn(['name' => 'full_name', 'type' => 'text', 'label' => 'Name']);
+            $this->crud->addColumn(['name' => 'bulb_hours', 'type' => 'number', 'label' => 'Bulb Hours']);
         
           $this->crud->addColumn(['name' => 'last_cleaned', 'type' => 'text', 'label' => 'Last Cleaned']);
        
@@ -83,6 +84,7 @@ class RoomCrudController extends CrudController
        // ['number', 'cleaned', 'passing', 'assigned_to', 'last_cleaned', 'last_checked', 'building'];
         // Fields
         $this->crud->addField(['name' => 'number', 'type' => 'text', 'label' => 'Room Number']);
+        $this->crud->addField(['name' => 'bulb_hours', 'type' => 'number', 'label' => 'Bulb Hours']);
         
         $this->crud->addField([  // Select
        'label' => "Building",
