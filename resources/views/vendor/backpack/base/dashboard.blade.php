@@ -25,7 +25,11 @@
                 foreach(Room::oldest('last_checked')->where('last_checked','!=','null')->take(5)->get() as $room){
                 
                     $data->push( date_diff(new DateTime($room->last_checked),today())->days );
-                    $labels->push($room->full_name . ' ' . $room->user->name);
+                    if($room->user != null){
+                        $labels->push($room->full_name . ' - ' . $room->user->name);
+                    }else{
+                        $labels->push($room->full_name . ' - Not assigned');
+                    }
                 
                 }
                 
