@@ -25,7 +25,7 @@
 
 ## General Information
 1. Repo includes the Backpack plugin for the admin panel as well as a Permissions plugin for specifiying regular/admin access to control panel. Also includes a Charting plugin for pretty graphs in the admin panel.
-2. Can view all routes for package in /routes/web.php
+2. Can view all routes for package in /routes/web. Admin panel routes are available in /routes/backpack/custom.php
 3. A RESTful API has been created for third party access if desired in the future. These routes can be found in /routes/api.php
     - It is exposed at `/api/`. Uses bearer tokens for validating requests. `/api/login and /api/register` to gain a token. Users are synced across the API/Web access.
     - If this functionality is not desired just turn off these routes by commenting them out in this file.
