@@ -76,20 +76,18 @@
                 
                 
                  $chart3 = new AdminChart;
-                 $chart3->labels(['> 1800 Hrs',$label2,$label3]);
+                 $chart3->labels(['> 1800 Hrs',' < 2000 Hrs',' > 2000 Hrs']);
                  $chart3->dataset('Rooms', 'doughnut' , $data)->options(['backgroundColor'=>array('rgba(63, 195, 128, 1)','rgba(244, 179, 80, 1)','rgba(246, 36, 89, 1)'),]);
                  $chart3->title("Bulbs good, nearing replacement, or past due.", 20, '#666', true, "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif");
-                 $chart3->height(200);
-                 $chart3->width(200);
+                 $chart3->height(167);
+                 $chart3->width(167);
                  $chart3->minimalist(true);
                 
                 
                 
 @endphp
-                
 
 @extends('backpack::layout')
-
 @section('header')
     <section class="content-header">
       <h1>
@@ -100,8 +98,8 @@
         <li class="active">{{ trans('backpack::base.dashboard') }}</li>
       </ol>
     </section>
+                
 @endsection
-
 
 @section('content')
 <!--
@@ -154,9 +152,36 @@
                 </div>
 
                 <div class="box-body">
+                    <script>
+                    function buttonToggle() {
+                      var x = document.getElementById("chartcontainer");
+                      var y = document.getElementById("datacontainer");
+                      var z = document.getElementById("togglebutton");
+                      if (x.style.display === "none") {
+                        x.style.display = "block";
+                        y.style.display = "none";
+                        z.innerHTML = "Problematic Rooms";
+                      } else {
+                        x.style.display = "none";
+                        y.style.display = "block";
+                        z.innerHTML = "Room Chart";
+                      }
+                    }
+                    </script>
+                    <center><button class="btn btn-primary ladda-button" onClick="buttonToggle()" id="togglebutton">Problematic Rooms</button></center>
+                    <div id="chartcontainer">
                     {!! $chart3->container() !!}
+                    
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
                     {!! $chart3->script() !!}
+                    </div>
+                    <div style='display:none;' id="datacontainer">
+                        </br>
+                        <p>{{ $label2 }}</p>
+                        </br>
+                        <p>{{ $label3 }}</p>
+                    </div>
+           
                 </div>
             </div>
         </div>
