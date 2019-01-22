@@ -20,5 +20,12 @@
 1. You may need to change some permissions so Laravel has proper access to folders
     - If you are getting errors about log files, please run `chmod -R 777 storage` in the root of the project for the storage folder.
 2. Laravel uses pretty routing. To ensure this works properly, please set your webserver to use the /public directory of the repo as the root of the project.
-    - A .htaccess file is included in this directory which should work out of the box with apache servers. Ngnix support is available as well. 
+    - A .htaccess file is included in this directory which should work out of the box with apache servers. Nginx support is available as well. 
     - Stack overflow <3 has lots of help on getting routing working for different server setups.
+
+## General Information
+1. Repo includes the Backpack plugin for the admin panel as well as a Permissions plugin for specifiying regular/admin access to control panel.
+2. Can view all routes for package in /routes/web.php
+3. A RESTful API has been created for third party access if desired in the future. These routes can be found in /routes/api.php
+    - It is exposed at `/api/`. Uses bearer tokens for validating requests. `/api/login and /api/register` to gain a token. Users are synced across the API/Web access.
+    - If this functionality is not desired just turn off these routes by commenting them out in this file.
