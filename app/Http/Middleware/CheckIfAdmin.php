@@ -26,7 +26,8 @@ class CheckIfAdmin
         //return true;
         //return ($user->hasRole('admin'));
         $new_user = \App\User::find($user->id); 
-        return $new_user->hasRole('admin');
+        $new_user2 = \App\Models\BackpackUser::find($user->id);
+        return ($new_user->hasRole('admin') || $new_user2->hasRole('admin'))? true : false; 
     }
 
     /**
