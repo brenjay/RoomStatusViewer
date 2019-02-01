@@ -17,7 +17,7 @@ class AddTeamToUsers extends Migration
             
                
             $table->integer('team_id')->nullable()->unsigned()->default(null);
-            $table->foreign('team_id')->references('id')->on('teams')->onDelete('cascade');
+            $table->foreign('team_id')->references('id')->on('teams')->onDelete('set null');
             
             
         });
