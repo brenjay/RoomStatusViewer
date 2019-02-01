@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
 
-class Room extends Model
+class Team extends Model
 {
     use CrudTrait;
 
@@ -15,32 +15,14 @@ class Room extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'rooms';
+    protected $table = 'teams';
     protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
+    protected $fillable = ['name','webhookURL'];
     // protected $hidden = [];
     // protected $dates = [];
 
-    protected $fillable = ['number', 'cleaned', 'passing', 'assigned_to', 'last_cleaned', 'last_checked', 'building', 'full_name', 'cleaned_by'];
-   
-    public $timestamps = false;
-   
-   
-    public function building()
-    {
-        return $this->belongsTo('App\Models\Building','building');
-    }
-    
-      public function location()
-    {
-        return $this->belongsTo('App\Models\Building','building');
-    }
-    
-       public function user()
-    {
-        return $this->belongsTo('App\User','assigned_to');
-    }
     /*
     |--------------------------------------------------------------------------
     | FUNCTIONS
@@ -53,6 +35,11 @@ class Room extends Model
     |--------------------------------------------------------------------------
     */
 
+     public function user()
+    {
+        return $this->hasMany('App\User','team_id','id');
+    }
+    
     /*
     |--------------------------------------------------------------------------
     | SCOPES

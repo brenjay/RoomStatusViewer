@@ -35,14 +35,21 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
     
+    /*
     public function rooms()
     {
         return $this->hasMany('App\room','assigned_to','id');
     }
+    */
     
      public function room()
     {
         return $this->hasMany('App\Models\Room','assigned_to','id');
+    }
+    
+     public function team()
+    {
+        return $this->belongsTo('App\Models\Team','team_id');
     }
     
     

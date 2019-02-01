@@ -28,4 +28,6 @@ Route::group([
         }
         return $count . " rooms have been marked unclean and not passing.";
     });
+    CRUD::resource('team', 'TeamCrudController');
+    CRUD::resource('assignment_team', 'AssignmentTeamCrudController');
 }); // this should be the absolute last line of this file

@@ -28,7 +28,7 @@ class Building extends Model
     
     public function room()
     {
-        return $this->hasMany('App\room','building','id');
+        return $this->hasMany('App\Models\Room','building','id');
     }
 
     /*
